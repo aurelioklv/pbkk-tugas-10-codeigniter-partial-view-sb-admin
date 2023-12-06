@@ -6,16 +6,18 @@ class Page extends BaseController
 {
     public function about()
     {
-        return view('about');
+        $data = [
+            'title' => 'About Page'
+        ];
+        return view('pages/about', $data);
     }
 
     public function contact()
     {
         $data = [
-            'name' => 'Aurelio Killian',
-            'nrp' => '5025211126',
+            'title' => 'Contact Page',
         ];
-        return view('contact', $data);
+        return view('pages/contact', $data);
     }
 
     public function faqs()
@@ -30,13 +32,10 @@ class Page extends BaseController
                 'answer' => 'To create a new controller in CodeIgniter, you can use the make:controller command in the terminal. For example, php spark make:controller MyController will create a new controller named MyController.',
             ],
         ];
-        $data['faqItems'] = $faqItems;
-
-        return view('faqs', $data);
-    }
-
-    public function tos()
-    {
-        echo "Terms of service page";
+        $data = [
+            'faqItems' => $faqItems,
+            'title' => 'FAQ'
+        ];
+        return view('pages/faqs', $data);
     }
 }
